@@ -57,6 +57,6 @@ The below can be viewed as discussion points for the design session or as a chec
 
 ## Reference 
 
-[AWS Zombie Lambda Workshop](https://github.com/awslabs/aws-lambda-zombie-workshop)
-[Rackspace Canon Framework](http://rackerlabs.github.io/canon/get-started/)
-[GraphQL](http://graphql.org/)
+- [AWS Zombie Lambda Workshop](https://github.com/awslabs/aws-lambda-zombie-workshop)
+- [Rackspace Canon Framework](http://rackerlabs.github.io/canon/get-started/)
+- [GraphQL](http://graphql.org/)
