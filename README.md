@@ -54,3 +54,9 @@ The below can be viewed as discussion points for the design session or as a chec
 - Agree Lambda functions to be created and the functionality they are intended to support
 - Decide if a datastore is required and if so which one
 - Which notification solutions are best fit for the *Project Goals* and what third party integrations would add value?
+
+## Reference 
+
+[AWS Zombie Lambda Workshop](https://github.com/awslabs/aws-lambda-zombie-workshop)
+[Rackspace Canon Framework](http://rackerlabs.github.io/canon/get-started/)
+[GraphQL](http://graphql.org/)
