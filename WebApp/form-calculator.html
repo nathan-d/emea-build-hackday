@@ -1,16 +1,134 @@
-<!-- Product checkboxes -->
-<div class="form-group" ng-repeat="(section, products) in formData['aws_services']">
-    <label>{{section}}</label><br>
-    <div class="checkbox" ng-repeat="(product, enabled) in products">
-        <input type="checkbox" ng-model="formData['aws_services'][section][product]" value="true">{{product}}
+
+    <div class="rs-main rs-panel">
+      <div class="rs-sidebar rs-pull-right">
+        <div class="rs-inner">
+          <h3>Setting Up This Item</h3>
+          <h4>Next steps help text</h4>
+          <p>Short blurb about best practices next steps with this item. Try to keep this to 3 lines maximum.</p>
+          <p><a target="blank" href="#">More Details About Blurb &raquo;</a></p>
+          <hr>
+          <h4>Help Me With...</h4>
+          <ul>
+            <li><a target="blank" href="#">Best Practice Number One</a></li>
+            <li><a target="blank" href="#">Best Practice Number Two</a></li>
+            <li><a target="blank" href="#">Best Practice Number Three</a></li>
+          </ul>
+          <p><a target="blank" href="#">Learn More about This Product &raquo;</a></p>
+          <hr>
+          <h4>What's Next</h4>
+          <ul>
+            <li><a target="blank" href="#">Top Action Number One</a></li>
+            <li><a target="blank" href="#">Top Action Number Two</a></li>
+            <li><a target="blank" href="#">Top Action Number Three</a></li>
+          </ul>
+          <p><a target="blank" href="#">Visit Our Knowledge Center &raquo;</a></p>
+        </div>
+      </div>
+      <div class="rs-content rs-panel">
+        <form class="rs-form-create">
+          <div class="rs-detail-section">
+            <div class="rs-detail-section-header">
+                <div class="rs-detail-header-subtitle">Fanatical Support for AWS</div>
+              <h2 class="rs-page-title">Simple Build Calculator</h3>
+              <div class="rs-detail-section-title">Step 1: Customer Details</div>
+            </div>
+            <div class="rs-detail-section-body">
+
+              <div class="rs-control-group">
+    <label class="rs-control-label" for="name">Customer Name</label>
+    <div class="rs-controls">
+    <input type="text" class="rs-input-xlarge" name="customer" ng-model="formData['customer_details'].name">
     </div>
+  </div>
+
+<div class="rs-control-group">
+    <label class="rs-control-label" for="rackspace_account">Rackspace DDI</label>
+    <div class="rs-controls">
+    <input type="text" class="rs-input-medium" name="rackspace_account" ng-model="formData['customer_details'].account">
+    </div>
+  </div>
+
+  <div class="rs-control-group">
+    <label class="rs-control-label" for="rackspace_account">AWS Spend ($)</label>
+    <div class="rs-controls">
+    <input type="text" class="rs-input-medium" name="customerspend" ng-model="formData['customer_details'].sa">
+    </div>
+  </div>
+  <div class="rs-control-group">
+    <label class="rs-control-label" for="rackspace_account">Solution Architect</label>
+    <div class="rs-controls">
+    <input type="text" class="rs-input-xlarge" name="architect" ng-model="formData['customer_details'].sa">
+    </div>
+  </div>
+            
+            </div>
+          </div>
+          <div class="rs-detail-section">
+            <div class="rs-detail-section-header">
+              <div class="rs-detail-section-title">Step 2: Select Products</div>
+            </div>
+
+
+
+          <div class="rs-detail-section-body"  ng-repeat="(section, products) in formData['aws_services']">
+              <h4>{{ section }}</h4>
+            <div class="rs-embedded-list-table-wrapper rs-embedded-medium" id="detail-example-embedded-list-table">
+              <table class="rs-list-table rs-embedded-list-table">
+    <thead>
+      <tr>
+          
+          <th class="rs-table-status"></th>
+        <th class="rs-table-checkbox"></th>
+        <th class="rs-table-cog"></th>
+        <th>
+          <a href="javascript:void(0);" class="rs-table-sort">
+            <span class="rs-table-sort-text">Name</span>
+            <span class="rs-table-sort-indicator"></span>
+          </a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="(product, data) in products">
+          
+          <td ng-class="{'rs-table-status rs-table-status-warning': 1, 'rs-table-status rs-table-status-warning': 2, 'rs-table-status rs-table-status-warning': 3}[data.score]"></td>
+        <td class="rs-table-checkbox">
+          <input type="checkbox" name="item-image" ng-model="formData['aws_services'][section][product]">
+        </td>
+        <td>
+          <img ng-src="assets/serviceicons/{{product}}.png" width="20px" height="20px">
+        </td>
+        <td class="rs-table-text">{{product}}<span class="rs-help-block">{{data.longdesc}}</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div></div>
+
+          </div>
+
+<div class="rs-detail-section">
+            <div class="rs-detail-section-header">
+              <div class="rs-detail-section-title">Step 3: Simple Build Score</div>
+            </div>
+            <div class="rs-detail-section-body">
+                <!-- Default Ok Bar -->
+<div class="rs-progress">
+  <div class="rs-progress-inner">
+    <div class="rs-segment" style="width: 50%">
+      <div class="rs-bar rs-status-ok"></div>
+    </div>
+  </div>
+</div>
+            </div>
 </div>
 
-<!-- Submission area -->
-<div class="form-group row">
-    <div class="col-xs-6 col-xs-offset-3">
-        <a ui-sref="form.review" class="btn btn-block btn-info">
-        Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
-        </a>
+
+          <div class="rs-detail-section">
+            <div class="rs-detail-section-header rs-btn-group">
+              <button class="rs-btn rs-btn-primary" type="button">Submit Simple Build</button>
+              <a href="javascript:void(0);" class="rs-btn rs-btn-link">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
