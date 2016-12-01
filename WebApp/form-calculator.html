@@ -1,0 +1,16 @@
+<!-- Product checkboxes -->
+<div class="form-group" ng-repeat="(section, products) in formData['aws_services']">
+    <label>{{section}}</label><br>
+    <div class="checkbox" ng-repeat="(product, enabled) in products">
+        <input type="checkbox" ng-model="formData['aws_services'][section][product]" value="true">{{product}}
+    </div>
+</div>
+
+<!-- Submission area -->
+<div class="form-group row">
+    <div class="col-xs-6 col-xs-offset-3">
+        <a ui-sref="form.review" class="btn btn-block btn-info">
+        Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+        </a>
+    </div>
+</div>

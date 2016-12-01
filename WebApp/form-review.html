@@ -1,0 +1,12 @@
+<div class="text-left">
+    <h3>Lets review the build...</h3>
+    <div ng-repeat="(section, products) in formData['aws_services']">
+    <!-- TODO: Add functionality to only display the relevent sections -->
+    <b>{{section}}</b>
+    <div ng-repeat="(entry,state) in products" ng-show="state">
+        {{entry}}
+    </div>
+</div>
+</div class="col-xs-6 col-xs-offset-3">
+    <button type="submit" class="btn btn-danger">Submit</button>
+</div>

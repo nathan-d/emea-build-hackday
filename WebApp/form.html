@@ -1,0 +1,26 @@
+<div class="row">
+<div class="col-sm-8 col-sm-offset-2">
+
+  <div id="form-container">
+      <div class="page-header text-center">
+          <h2>Simple Build Calculator</h2>
+          <div id="status-buttons" class="text-center">
+              <a ui-sref-active="active" ui-sref=".customer"><span>1</span> Customer</a>
+              <a ui-sref-active="active" ui-sref=".calculator"><span>2</span> Calculator</a>
+              <a ui-sref-active="active" ui-sref=".review"><span>3</span> Review</a>
+          </div>
+      </div>
+      
+      <form id="calculator-form" ng-submit="processForm()">
+          <div id="form-views" ui-view></div>
+      </form>
+  
+  </div>
+  
+  <pre>
+    {{ formData }}
+  </pre>
+
+</div>
+</div>
+
