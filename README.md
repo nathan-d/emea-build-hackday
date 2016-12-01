@@ -17,7 +17,6 @@ The suggested agenda for the day is:
 - **13:00** - Back at it for further awesomeness. 
 - **16:00** - Wrap-up with final update from team.
 - **16:30** - Drinks
-  
 
 ### Working Structure
 To ensure we're all working in roughly the same way the following is recommended:
