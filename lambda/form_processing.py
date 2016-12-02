@@ -29,7 +29,7 @@ def datastore_push(message):
         logger.error('Error connecting to DynamoDB')
         return False
 
-def message_consumer(event, context):
+def lambda_handler(event, context):
     # Consumes messages from the SQS queue
     logger.info('Message consumer started...')
     sqs = boto3.resource('sqs')
