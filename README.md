@@ -1,5 +1,8 @@
 # EMEA Build Hackday
 
+![architecture diagram](images/simple_builds_architecture.png "Project Architecture Diagram")
+
+
 ## Overview
 The inaugural hackday for the FAWS EMEA Build team is intended to achieve the following:
 
@@ -12,12 +15,11 @@ The suggested agenda for the day is:
 
 - **09:00** - Google Campus opens its doors. 
 - **09:15** - Beverages are secured and hackday project discussion and design start.
-- **10:00** - Russell arrives and buys everyone drinks as penance. 
+- **~~10:00~~ 11:00** - Russell arrives and buys everyone drinks as penance. 
 - **12:00** - Lunch of some sort (facilities uncertain) and regroup.
 - **13:00** - Back at it for further awesomeness. 
 - **16:00** - Wrap-up with final update from team.
 - **16:30** - Drinks
-  
 
 ### Working Structure
 To ensure we're all working in roughly the same way the following is recommended:
