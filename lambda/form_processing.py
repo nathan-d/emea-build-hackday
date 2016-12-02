@@ -24,7 +24,7 @@ def datastore_push(message):
         response = table.put_item(Item=message)
         return response
     except:
-        print "Unexpected error"
+        logger.error('Error connecting to DynamoDB')
         return False
 
 def message_consumer(event, context):
@@ -34,13 +34,16 @@ def message_consumer(event, context):
     queue = sqs.get_queue_by_name(QueueName='simple-build-queue')
     msg_pending = True
     while msg_pending:  #TODO: We really need to clean this up
-        msg = queue.receive_messages() #TODO: Fix the fucking looping shizzle
-        if msg:
-            msg = msg[0]    #TODO: Need to handle more than one element for when AWS fix SQS
+        try: 
+            messages = queue.receive_messages()
+        except:
+            logger.error("Unexpected error - SQS queue recieve_messages")
+            return False
+        
+        for msg in messages:    # At some point SQS might return more than one message 
             logger.info('Consuming message from queue.')
             response = process_message(msg)
-            if response:
-                # Push to datastore
+            if response:    
                 logger.info('Pushing to DynamoDB')
                 datastore_push(response)
                 logger.info('Push successful - Deleting message from queue...')
