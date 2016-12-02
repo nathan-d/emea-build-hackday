@@ -26,6 +26,8 @@
       </div>
       <div class="rs-content rs-panel">
         <form class="rs-form-create">
+
+          <!-- Step 1 - Custoemr Details -->
           <div class="rs-detail-section">
             <div class="rs-detail-section-header">
                 <div class="rs-detail-header-subtitle">Fanatical Support for AWS</div>
@@ -63,6 +65,8 @@
             
             </div>
           </div>
+
+          <!-- Step 2 - Products section -->
           <div class="rs-detail-section">
             <div class="rs-detail-section-header">
               <div class="rs-detail-section-title">Step 2: Select Products</div>
@@ -88,7 +92,7 @@
                     <tr ng-repeat="(product, data) in products">
                       <td ng-class="{'rs-table-status rs-table-status-ok': data.score==1, 'rs-table-status rs-table-status-warning': data.score==2, 'rs-table-status rs-table-status-error': data.score==3}"></td>
                       <td class="rs-table-checkbox">
-                        <input type="checkbox" name="item-image" ng-model="formData['aws_services'][section][product]">
+                        <input type="checkbox" name="item-image" ng-model="data['selected']">
                       </td>
                       <td>
                         <img ng-src="assets/serviceicons/{{product}}.png" width="20px" height="20px">
@@ -100,6 +104,8 @@
               </div>
             </div>
           </div>
+          
+          <!-- Step 3 - Simple Builds Section -->
           <div class="rs-detail-section">
             <div class="rs-detail-section-header">
               <div class="rs-detail-section-title">Step 3: Simple Build Score</div>
