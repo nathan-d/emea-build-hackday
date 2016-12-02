@@ -9,11 +9,13 @@ def process_message(message):
     # Processes the message content prior to DB push
     body = json.loads(message.body)
     processed = {}
+    
+    logger.info('Processing message')
+
     for section, product in body['aws_services'].iteritems():
         body['aws_services'][section] = dict((k, v) for k, v in product.iteritems() if v != False) #TODO: Handle mixed case (Defensive coding)
         processed = body['customer_details']
         processed['aws_services'] = body['aws_services']
-        print processed
     return processed
 
 def datastore_push(message):
@@ -32,22 +34,24 @@ def message_consumer(event, context):
     logger.info('Message consumer started...')
     sqs = boto3.resource('sqs')
     queue = sqs.get_queue_by_name(QueueName='simple-build-queue')
-    msg_pending = True
-    while msg_pending:  #TODO: We really need to clean this up
+    msg_pending = True  # We have to set a flag here because SQS only returns a single message 
+    while msg_pending:
         try: 
             messages = queue.receive_messages()
         except:
             logger.error("Unexpected error - SQS queue recieve_messages")
             return False
         
-        for msg in messages:    # At some point SQS might return more than one message 
+        for msg in messages:    # At some point SQS might return more than one message
             logger.info('Consuming message from queue.')
             response = process_message(msg)
             if response:    
                 logger.info('Pushing to DynamoDB')
-                datastore_push(response)
-                logger.info('Push successful - Deleting message from queue...')
-                msg.delete()
+                if datastore_push(response):
+                    logger.info('Push successful - Deleting message from queue...')
+                    msg.delete()
+                else:
+                    logger.error('Unable to push message to DynammoDB table')
             else:
                 logger.error('Encountered an error ' % (response))
         else:
