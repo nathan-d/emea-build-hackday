@@ -1,5 +1,5 @@
 
-angular.module('formApp', ['ngAnimate', 'ui.router'])
+angular.module('simpleBuildApp', ['ngAnimate', 'ui.router'])
 
 // == Routes == //
 .config(function($stateProvider, $urlRouterProvider) {
@@ -9,12 +9,6 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
             url: '/form',
             templateUrl: 'form.html',
             controller: 'formController'
-        })
-
-        // /form/customer
-        .state('form.customer', {
-            url: '/customer',
-            templateUrl: 'form-customer.html'
         })
 
         // /form/calculator
@@ -31,7 +25,7 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
 
 
     // catch all route
-    $urlRouterProvider.otherwise('/form/customer');
+    $urlRouterProvider.otherwise('/form/calculator');
 })
 
 // == Controller  == //
@@ -47,28 +41,26 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
         }
     }
 
+    // == performs http action on form submission == //
     $scope.sendData = function(formData) {
-        alert('Submitted!!');
         $http({
-            url: 'https://19cfe913og.execute-api.eu-west-1.amazonaws.com/test/pets', // Endpoint may have changed as its still in dev
+            method: "POST",
+            url: 'https://9tekr9sgy7.execute-api.eu-west-1.amazonaws.com/SimpleBuid',
             headers: {
-              'X-Api-Key': '', // Auth needs to be addressed
+            //   'X-Api-Key': '', // Auth needs to be addressed
               'Content-Type': 'application/json'
             },
-            method: "GET",
             data: { 'message' : formData }
-        })
-        .then(function(response) {
+        }).then(function(response) {    // successful response callback
           alert(response.status);
-        },
-        function(response) { // optional
+        }, function(response) {         // error response callback
           alert(response.status);
-        })
+        });
     }
 
-
+    // == processForm function to abstract send event == // 
     $scope.processForm = function() {
         $scope.sendData($scope.formData);
-    };
-
+    }
+    
 });

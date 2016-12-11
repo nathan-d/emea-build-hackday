@@ -9,7 +9,6 @@
           <a href="index.html"></a>
         </div>
         <ul class="rs-nav">
-          <li><a ui-sref-active="active" ui-sref=".customer">Customer</a></li>
           <li><a ui-sref-active="active" ui-sref=".calculator">Calculator</a></li>
           <li><a ui-sref-active="active" ui-sref=".review">Review</a></li>                  
         </ul>
@@ -17,16 +16,15 @@
     </div>
     
     <div class="rs-body">
-      <div class="rs-container">
-                
-                    <form id="calculator-form" class="rs-form-horizontal rs-form-large" ng-submit="processForm()"
-                        <div id="form-views" ui-view></div>
-                    </form>
+      <div class="rs-container">        
+        <form id="calculator-form" class="rs-form-horizontal rs-form-large" ng-submit="processForm()"
+            <div id="form-views" ui-view></div>
+        </form>
       </div>
     </div>
     <div class="rs-push"></div>
   </div>
-    <pre>
+  <pre>
     {{ formData }}
   </pre>
   <div class="rs-nav-footer">
