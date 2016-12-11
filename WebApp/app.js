@@ -1,41 +1,36 @@
 
-angular.module('formApp', ['ngAnimate', 'ui.router'])
+angular.module('simpleBuildApp', ['ngAnimate', 'ui.router'])
 
 // == Routes == //
 .config(function($stateProvider, $urlRouterProvider) {
-    
+
     $stateProvider
         .state('form', {
             url: '/form',
             templateUrl: 'form.html',
             controller: 'formController'
         })
-        
-        // /form/customer
-        .state('form.customer', {
-            url: '/customer',
-            templateUrl: 'form-customer.html'
-        })
-        
+
         // /form/calculator
         .state('form.calculator', {
             url: '/calculator',
             templateUrl: 'form-calculator.html'
         })
-        
+
         // /form/review
         .state('form.review', {
             url: '/review',
             templateUrl: 'form-review.html'
         });
-       
+
+
     // catch all route
-    $urlRouterProvider.otherwise('/form/customer');
+    $urlRouterProvider.otherwise('/form/calculator');
 })
 
 // == Controller  == //
-.controller('formController', function($scope) {
-    
+.controller('formController', function($scope, $http) {
+
     $scope.formData = {
         "customer_details": {},
         "aws_services": {
@@ -46,10 +41,26 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
         }
     }
 
+    // == performs http action on form submission == //
+    $scope.sendData = function(formData) {
+        $http({
+            method: "POST",
+            url: 'https://9tekr9sgy7.execute-api.eu-west-1.amazonaws.com/SimpleBuid',
+            headers: {
+            //   'X-Api-Key': '', // Auth needs to be addressed
+              'Content-Type': 'application/json'
+            },
+            data: { 'message' : formData }
+        }).then(function(response) {    // successful response callback
+          alert(response.status);
+        }, function(response) {         // error response callback
+          alert(response.status);
+        });
+    }
+
+    // == processForm function to abstract send event == // 
     $scope.processForm = function() {
-        alert('Submitted!!');
-        // TODO: Add submission handling here  
-    };
+        $scope.sendData($scope.formData);
+    }
     
 });
-
