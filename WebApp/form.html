@@ -1,26 +1,44 @@
-<div class="row">
-<div class="col-sm-8 col-sm-offset-2">
-
-  <div id="form-container">
-      <div class="page-header text-center">
-          <h2>Simple Build Calculator</h2>
-          <div id="status-buttons" class="text-center">
-              <a ui-sref-active="active" ui-sref=".customer"><span>1</span> Customer</a>
-              <a ui-sref-active="active" ui-sref=".calculator"><span>2</span> Calculator</a>
-              <a ui-sref-active="active" ui-sref=".review"><span>3</span> Review</a>
-          </div>
+<div class="rs-wrapper">
+    <div class="rs-nav-utility">
+      <div class="rs-container">
       </div>
-      
-      <form id="calculator-form" ng-submit="processForm()">
-          <div id="form-views" ui-view></div>
-      </form>
-  
+    </div>
+    <div class="rs-nav-primary">
+      <div class="rs-container">
+        <div class="rs-nav-brand">
+          <a href="index.html"></a>
+        </div>
+        <ul class="rs-nav">
+          <li><a ui-sref-active="active" ui-sref=".customer">Customer</a></li>
+          <li><a ui-sref-active="active" ui-sref=".calculator">Calculator</a></li>
+          <li><a ui-sref-active="active" ui-sref=".review">Review</a></li>                  
+        </ul>
+      </div>
+    </div>
+    
+    <div class="rs-body">
+      <div class="rs-container">
+                
+                    <form id="calculator-form" class="rs-form-horizontal rs-form-large" ng-submit="processForm()"
+                        <div id="form-views" ui-view></div>
+                    </form>
+      </div>
+    </div>
+    <div class="rs-push"></div>
   </div>
-  
-  <pre>
+    <pre>
     {{ formData }}
   </pre>
+  <div class="rs-nav-footer">
+    <div class="rs-container">
+      <ul class="rs-nav">
+        <li class="rs-nav-item">&copy; Rackspace, US</li>
+        <li class="rs-nav-item"><a class="rs-nav-link" href="http://www.rackspace.com/information/legal/websiteterms" target="blank">Website Terms</a>
+        <li class="rs-nav-item"><a class="rs-nav-link" href="http://www.rackspace.com/information/legal/privacystatement" target="blank">Privacy Policy</a>
+      </ul>
+    </div>
+  </div>
 
-</div>
-</div>
+
+
 

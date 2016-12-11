@@ -40,9 +40,10 @@ angular.module('formApp', ['ngAnimate', 'ui.router'])
     $scope.formData = {
         "customer_details": {},
         "aws_services": {
-            "EC2 Services": {"Elastic Load Balancer": false, "Application Load Balancer": false, "EC2 Instances": false, "Elastic Container Service": false},
-            "RDS Services": {"MySQL": false, "Oracle": false},
-            "Storage Services": {"S3": false, "EFS": false}
+            "Compute": {"ELB": {"score": 1, "longdesc": "Elastic Load Balancer"}, "EC2": {"score": 2, "longdesc": "Elastic Compute Cloud"}, "ECS": {"score": 3, "longdesc": "Elastic Container Service"}},
+            "Storage": {"S3": {"score": 1, "longdesc": "Simple Storage Service"}, "EFS": {"score": 2, "longdesc": "Elastic File System"}},
+            "Database": {"RDS": {"score": 1, "longdesc": "Relational Database Service"}}
+
         }
     }
 
