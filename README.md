@@ -1,4 +1,4 @@
-# EMEA Build Hackday
+# EMEA Build Hackday - An Amazing Project
 
 ![architecture diagram](images/simple_builds_architecture.png "Project Architecture Diagram")
 
